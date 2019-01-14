@@ -2,8 +2,8 @@ FROM openjdk:8-jdk
 LABEL Khanh Tran <khanhtm@vng.com.vn>
 
 ENV SDK_TOOLS "4333796"
-ENV BUILD_TOOLS "27.0.3"
-ENV TARGET_SDK "27"
+ENV BUILD_TOOLS "28.0.3"
+ENV TARGET_SDK "28"
 ENV ANDROID_HOME "/opt/android-sdk-linux"
 # ENV GLIBC_VERSION "2.27-r0"
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
@@ -11,7 +11,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 # Install required dependencies
 RUN dpkg --add-architecture i386
 RUN apt-get update -qq
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libc6:i386 libstdc++6:i386 libgcc1:i386 libncurses5:i386 libz1:i386
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libc6:i386 libstdc++6:i386 libgcc1:i386 libncurses5:i386 libz1:i386 zip
 
 # RUN apk add --no-cache --virtual=.build-dependencies wget unzip ca-certificates bash && \
 # 	wget https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub -O /etc/apk/keys/sgerrand.rsa.pub && \
