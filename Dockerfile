@@ -11,7 +11,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 # Install required dependencies
 RUN dpkg --add-architecture i386
 RUN apt-get update -qq
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libc6:i386 libstdc++6:i386 libgcc1:i386 libncurses5:i386 libz1:i386 zip python3
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libc6:i386 libstdc++6:i386 libgcc1:i386 libncurses5:i386 libz1:i386 zip python3 p7zip-full
 
 # RUN apk add --no-cache --virtual=.build-dependencies wget unzip ca-certificates bash && \
 # 	wget https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub -O /etc/apk/keys/sgerrand.rsa.pub && \
@@ -46,4 +46,4 @@ RUN /bin/bash -l -c "gem install fastlane"
 
 # install pip3
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python3 get-pip.py && rm get-pip.py
-RUN pip3 install requests telegram-send
+RUN pip3 install requests telegram-send pydrive pexpect pyotp
